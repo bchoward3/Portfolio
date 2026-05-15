@@ -15,7 +15,7 @@ function createMap() {
     // Disable scroll wheel zoom for smoother page navigation
     map.scrollWheelZoom.disable();
 
-    // Add Stadia Maps Alidade Smooth Dark basemap
+    
     // Add CartoDB Dark Matter basemap
     L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
         attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
