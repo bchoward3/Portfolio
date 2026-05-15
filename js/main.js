@@ -16,14 +16,12 @@ function createMap() {
     map.scrollWheelZoom.disable();
 
     // Add Stadia Maps Alidade Smooth Dark basemap
-    L.tileLayer(
-        "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
-        {
-            attribution:
-                "&copy; Stadia Maps &copy; OpenMapTiles &copy; OpenStreetMap contributors",
-            maxZoom: 20
-        }
-    ).addTo(map);
+    // Add CartoDB Dark Matter basemap
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        subdomains: "abcd",
+        maxZoom: 20
+    }).addTo(map);
 
     // Resume work locations
     var workLocations = [
