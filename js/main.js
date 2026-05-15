@@ -1,34 +1,132 @@
-// Declare the map variable with setView method defining map center (Denver approx.) and zoom level.
+// Declare the map variable
 var map;
 
 // Create the map function
 function createMap() {
-    // Create the map
-    map = L.map('map').setView([32, -81], 9);
 
-    // Add the Alidade Smooth Dark base tilelayer to the map
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        minZoom: 0,
-        maxZoom: 20,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-        ext: 'png'
-    }).addTo(map);
+    // Only run this code if the page has a map div
+    if (!document.getElementById("map")) {
+        return;
+    }
 
-    // Call the function to load GeoJSON data
-    //getData();
+    // Create the map and center it over the eastern / central United States
+    map = L.map("map").setView([38.5, -87.5], 5);
+
+    // Disable scroll wheel zoom for smoother page navigation
+    map.scrollWheelZoom.disable();
+
+    // Add Stadia Maps Alidade Smooth Dark basemap
+    L.tileLayer(
+        "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
+        {
+            attribution:
+                "&copy; Stadia Maps &copy; OpenMapTiles &copy; OpenStreetMap contributors",
+            maxZoom: 20
+        }
+    ).addTo(map);
+
+    // Resume work locations
+    var workLocations = [
+
+        {
+            name: "Chatham County: Project Management Office",
+            place: "Chatham County, Georgia",
+            coords: [32.0000, -81.1000],
+            title: "Public Safety GIS Analyst",
+            dates: "September 2025 - Present",
+            duties:
+                "Regular updates to CAD system, designed and implemented geodatabases, developed scripts for automation, resolved technical issues with the 911 system."
+        },
+
+        {
+            name: "United States Marshals Service",
+            place: "Madison, Wisconsin",
+            coords: [43.0731, -89.4012],
+            title: "Investigative Analyst / Administrative Support",
+            dates: "September 2023 - August 2025",
+            duties:
+                "Supported criminal investigators, conducted database and OSINT research, coordinated federal/state operations, and developed GIS resources using ArcGIS Enterprise and ArcGIS Pro."
+        },
+
+        {
+            name: "Bureau of Prisons: FCI Oxford",
+            place: "Oxford, Wisconsin",
+            coords: [43.7797, -89.5726],
+            title: "Correctional Counselor",
+            dates: "February 2023 - September 2023",
+            duties:
+                "Conducted NCIC checks, intake screening, administrative remedies, unit operations, and institutional compliance duties."
+        },
+
+        {
+            name: "Bureau of Prisons: USP Thomson",
+            place: "Thomson, Illinois",
+            coords: [41.9584, -90.1026],
+            title: "Correctional Systems Officer",
+            dates: "August 2020 - February 2023",
+            duties:
+                "Performed database inquiry, records management, mail monitoring, intelligence gathering, and policy interpretation and revision."
+        },
+
+        {
+            name: "Bureau of Prisons: FMC Lexington",
+            place: "Lexington, Kentucky",
+            coords: [38.0498, -84.4585],
+            title: "Correctional Officer",
+            dates: "December 2013 - August 2020",
+            duties:
+                "Managed institutional mail, records, correspondence, intelligence gathering, and communication with the public and government agencies."
+        },
+
+    ];
+
+    // Store marker references so timeline items can open them
+    var markers = [];
+
+    // Add markers and timeline cards
+    workLocations.forEach(function(job, index) {
+
+        var popupContent =
+            "<strong>" + job.name + "</strong><br>" +
+            "<em>" + job.place + "</em><br><br>" +
+            "<strong>" + job.title + "</strong><br>" +
+            job.dates + "<br><br>" +
+            job.duties;
+
+        var marker = L.circleMarker(job.coords, {
+            radius: 8,
+            color: "#ffffff",
+            weight: 2,
+            fillColor: "#e11f09",
+            fillOpacity: 0.9
+        })
+        .addTo(map)
+        .bindPopup(popupContent);
+
+        markers.push(marker);
+
+        // Create sidebar timeline item only if timeline div exists
+        if (document.getElementById("timeline")) {
+
+            var timelineItem = document.createElement("div");
+            timelineItem.className = "timeline-item";
+
+            timelineItem.innerHTML =
+                "<h4>" + job.name + "</h4>" +
+                "<p><strong>" + job.title + "</strong></p>" +
+                "<p>" + job.place + "</p>" +
+                "<p><em>" + job.dates + "</em></p>";
+
+            timelineItem.addEventListener("click", function() {
+                map.setView(job.coords, 8);
+                markers[index].openPopup();
+            });
+
+            document.getElementById("timeline").appendChild(timelineItem);
+        }
+
+    });
 }
 
-// Function to retrieve the GeoJSON data and add it to the map
-//function getData() {
-    //fetch("data/Chatham_municipalities.geojson")
-        //.then(function(response) {
-            //return response.json();  // Parse the JSON data
-        //})
-        //.then(function(json) {
-            // Create a Leaflet GeoJSON layer and add it to the map
-            //L.geoJson(json).addTo(map);
-        //});
-//}
-
-// Call createMap() when the DOM content is loaded
-document.addEventListener('DOMContentLoaded', createMap);
+// Call createMap when the DOM loads
+document.addEventListener("DOMContentLoaded", createMap);

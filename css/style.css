@@ -8,7 +8,7 @@
 /* Navbar title */
 .navbar-default .navbar-brand {
     color: white;
-    font-size: px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -47,30 +47,65 @@
     color: #050505;
     fill: #242424;
     border-color: #fff;
-
 }
 
-/*** JUMBOTRON ***/
+/***** SITE-WIDE HERO / JUMBOTRON *****/
 
-.jumbotron {
-    background-image: url("../assets/background.png");
+.jumbotron,
+.home-hero,
+.project-hero {
+    background:
+        linear-gradient(
+            rgba(33, 37, 41, 0.92),
+            rgba(33, 37, 41, 0.92)
+        ),
+        url("../assets/indexback.png");
+
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     text-align: left;
     color: #f8f8f8;
-    padding: 3%;
-    border-radius: 2px;
+    padding: 60px 0;
+    margin-bottom: 35px;
 }
 
-.jumbotron h2 {
+.jumbotron h1,
+.home-hero h1,
+.project-hero h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.jumbotron h2,
+.home-hero h2,
+.project-hero h2 {
     font-size: 36px;
     font-weight: bold;
 }
 
-.img-responsive{
-    width:100%;
+.jumbotron p,
+.home-hero p,
+.project-hero p {
+    font-size: 22px;
+    margin-bottom: 20px;
 }
 
-/*** CARD ***/
+/***** PROFILE IMAGE *****/
+
+.profile-image {
+    max-width: 120px;
+    width: 100%;
+    height: auto;
+
+    border-radius: 12px;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/***** CARD *****/
 
 .card-body {
     font-size: small;
@@ -89,28 +124,18 @@
     border-width: 0.3cm;
 }
 
-.text-intro {
-    font-size: medium;
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
 }
 
-/*** Basic Text Styles ***/
+/***** BASIC TEXT STYLES *****/
 
-#about-world {
-    max-width: 100%;
-}
-
-.resume h3 {
-    font-weight: bold;
-}
-
-ul li {
-    font-style: italic;
-}
-
-
-hr {
-    border-color: white;
-    border-width: 2px;
+body {
+    font-family: 'Calibri', sans-serif;
+    background-image: url("../assets/indexback.png");
+    background-attachment: fixed;
+    color: #242424;
 }
 
 p {
@@ -125,13 +150,168 @@ a:hover {
     color: #ebd122;
 }
 
-.container{
-    padding:25px 0;
+hr {
+    border-color: white;
+    border-width: 2px;
 }
 
-body {
+ul li {
+    font-style: italic;
+}
 
-    font-family: 'Calibri', serif;
-    background-image: url("../assets/indexback.png");
-    color: #242424;
+.container {
+    padding: 25px 0;
+}
+
+.img-responsive {
+    width: 100%;
+}
+
+.text-intro {
+    font-size: medium;
+}
+
+#about-world {
+    max-width: 100%;
+}
+
+.resume h3 {
+    font-weight: bold;
+}
+
+/***** MAP *****/
+
+#map {
+    height: 600px;
+    width: 100%;
+    border: 1px solid #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.container-fluid.p-0 {
+    padding: 0;
+}
+
+/***** HOME PAGE *****/
+
+.home-buttons {
+    margin-top: 25px;
+}
+
+.home-buttons .btn {
+    margin-right: 10px;
+}
+
+/***** PROJECTS PAGE *****/
+
+.projects-intro {
+    text-align: center;
+    padding: 40px 15px 20px 15px;
+}
+
+.projects-intro p {
+    font-size: 20px;
+}
+
+/***** PROJECT DETAIL PAGES *****/
+
+.project-content {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.project-summary {
+    background-color: rgba(255, 255, 255, 0.88);
+    border-left: 6px solid #2a2a35;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.project-summary h2 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.portfolio-image img {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/***** RESUME TIMELINE MAP *****/
+
+.resume-map-section {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.resume-map-title {
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+#timeline {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-left: 5px solid #2a2a35;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    height: 600px;
+    overflow-y: auto;
+}
+
+.timeline-item {
+    cursor: pointer;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-left: 4px solid #e11f09;
+    background-color: #f1f3f4;
+}
+
+.timeline-item:hover {
+    background-color: #e8e8e8;
+}
+
+.timeline-item h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.timeline-item p {
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+/***** ABOUT PAGE *****/
+
+.about-section {
+    padding-top: 50px;
+    padding-bottom: 70px;
+}
+
+.about-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-left: 6px solid #2a2a35;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.about-card h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-image {
+    max-width: 280px;
+    margin-bottom: 25px;
+}
+
+.about-buttons {
+    margin-top: 25px;
+}
+
+.about-buttons .btn {
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
