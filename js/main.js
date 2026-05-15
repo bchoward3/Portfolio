@@ -33,7 +33,7 @@ function createMap() {
             title: "Public Safety GIS Analyst",
             dates: "September 2025 - Present",
             duties:
-                "Regular updates to CAD system, designed and implemented geodatabases, developed scripts for automation, resolved technical issues with the 911 system."
+                "Regular updates to CAD system, designed and implemented geodatabases, developed scripts for automation, edited and maintained MSAG, resolved technical issues with the 911 system."
         },
 
         {
