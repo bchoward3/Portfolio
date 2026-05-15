@@ -54,6 +54,8 @@
 .jumbotron,
 .home-hero,
 .project-hero {
+    position: relative;
+
     background:
         linear-gradient(
             rgba(33, 37, 41, 0.78),
@@ -65,19 +67,29 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    backdrop-filter: blur(3px);
-
     text-align: left;
     color: #f8f8f8;
-    padding: 60px 0;
+
+    padding: 60px 0 100px 0;
     margin-bottom: 0;
+
     overflow: hidden;
 }
+
+/***** Keep hero content above fade overlay *****/
+
+.jumbotron .container,
+.home-hero .container,
+.project-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/***** Gradient fade into page background *****/
 
 .jumbotron::after,
 .home-hero::after,
 .project-hero::after {
-
     content: "";
 
     position: absolute;
@@ -342,10 +354,16 @@ ul li {
     margin-bottom: 10px;
 }
 
+/***** CONTACT PAGE *****/
+
 .contact-icon {
     max-width: 180px;
     width: 100%;
     height: auto;
 
     opacity: 0.95;
+
+    border-radius: 12px;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
