@@ -40,7 +40,7 @@ function createMap() {
             name: "United States Marshals Service",
             place: "Madison, Wisconsin",
             coords: [43.0731, -89.4012],
-            title: "Investigative Analyst / Administrative Support",
+            title: "Investigative Analyst",
             dates: "September 2023 - August 2025",
             duties:
                 "Supported criminal investigators, conducted database and OSINT research, coordinated federal/state operations, and developed GIS resources using ArcGIS Enterprise and ArcGIS Pro."
