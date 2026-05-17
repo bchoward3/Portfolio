@@ -108,6 +108,7 @@ function createMap() {
 
             var timelineItem = document.createElement("div");
             timelineItem.className = "timeline-item";
+            timelineItem.setAttribute("tabindex", "0");
 
             timelineItem.innerHTML =
                 "<h4>" + job.name + "</h4>" +

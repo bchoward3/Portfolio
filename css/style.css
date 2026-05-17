@@ -3,6 +3,8 @@
 .navbar {
     background-color: #2a2a35;
     border-radius: 0;
+    position: relative;
+    z-index: 1000;
 }
 
 /* Navbar title */
@@ -49,6 +51,26 @@
     border-color: #fff;
 }
 
+/* Soft fade below navbar */
+.navbar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -40px;
+    width: 100%;
+    height: 40px;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(33, 37, 41, 0.95) 0%,
+        rgba(33, 37, 41, 0.75) 35%,
+        rgba(33, 37, 41, 0.35) 70%,
+        rgba(33, 37, 41, 0) 100%
+    );
+
+    pointer-events: none;
+}
+
 /***** SITE-WIDE HERO / JUMBOTRON *****/
 
 .jumbotron,
@@ -76,8 +98,7 @@
     overflow: hidden;
 }
 
-/***** Keep hero content above fade overlay *****/
-
+/* Keep hero content above fade overlay */
 .jumbotron .container,
 .home-hero .container,
 .project-hero .container {
@@ -85,24 +106,22 @@
     z-index: 2;
 }
 
-/***** Gradient fade into page background *****/
-
+/* Gradual fade into page background */
 .jumbotron::after,
 .home-hero::after,
 .project-hero::after {
     content: "";
-
     position: absolute;
-
     left: 0;
     bottom: 0;
-
     width: 100%;
-    height: 120px;
+    height: 180px;
 
     background: linear-gradient(
         to bottom,
         rgba(33, 37, 41, 0) 0%,
+        rgba(120, 120, 120, 0.18) 35%,
+        rgba(180, 180, 180, 0.45) 65%,
         rgba(232, 232, 232, 1) 100%
     );
 
@@ -137,9 +156,7 @@
     max-width: 120px;
     width: 100%;
     height: auto;
-
     border-radius: 12px;
-
     box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 
@@ -159,7 +176,6 @@
 
 .card:hover {
     border-color: #d40808;
-    border-width: 0.3cm;
 }
 
 .card-img-top {
@@ -360,11 +376,8 @@ ul li {
     max-width: 180px;
     width: 100%;
     height: auto;
-
     opacity: 0.95;
-
     border-radius: 12px;
-
     box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 
@@ -377,42 +390,18 @@ ul li {
 
 .contact-card {
     display: block;
-
     background-color: rgba(255,255,255,0.88);
-
     border-left: 5px solid #2a2a35;
-
     padding: 30px 20px;
-
     text-decoration: none;
-
     color: #242424;
-
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-
-    transition: all 0.25s ease;
 }
 
 .contact-card:hover {
-    transform: translateY(-5px);
-
     border-left-color: #e11f09;
-
     text-decoration: none;
-
     color: #242424;
-}
-
-.contact-method-icon {
-    max-width: 70px;
-
-    margin-bottom: 15px;
-}
-
-.contact-card h3 {
-    font-weight: bold;
-
-    margin-bottom: 10px;
 }
 
 .contact-method-icon {
@@ -422,33 +411,26 @@ ul li {
     margin-bottom: 20px;
 }
 
-/***** NAVBAR TO HERO TRANSITION *****/
-
-.navbar {
-    position: relative;
-    z-index: 1000;
+.contact-card h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-/* Soft fade below navbar */
-.navbar::after {
+/***** SUBTLE ANIMATIONS *****/
 
-    content: "";
+.card,
+.contact-card,
+.timeline-item {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
 
-    position: absolute;
+.card:hover,
+.contact-card:hover,
+.timeline-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+}
 
-    left: 0;
-    bottom: -40px;
-
-    width: 100%;
-    height: 40px;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(33, 37, 41, 0.95) 0%,
-        rgba(33, 37, 41, 0.75) 35%,
-        rgba(33, 37, 41, 0.35) 70%,
-        rgba(33, 37, 41, 0) 100%
-    );
-
-    pointer-events: none;
+html {
+    scroll-behavior: smooth;
 }
