@@ -581,3 +581,30 @@ ul li {
         margin-bottom: 25px;
     }
 }
+
+/***** RESPONSIVE PROFILE IMAGES *****/
+
+.desktop-profile {
+    display: block;
+}
+
+.mobile-profile {
+    display: none;
+}
+
+/***** MOBILE VERSION *****/
+
+@media (max-width: 768px) {
+
+    .desktop-profile {
+        display: none;
+    }
+
+    .mobile-profile {
+        display: block;
+        max-width: 170px;
+        margin: 25px auto 0 auto;
+        border-radius: 14px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+}
