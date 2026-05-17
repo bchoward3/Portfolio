@@ -414,3 +414,10 @@ ul li {
 
     margin-bottom: 10px;
 }
+
+.contact-method-icon {
+    font-size: 60px;
+    color: #2a2a35;
+    display: block;
+    margin-bottom: 20px;
+}
