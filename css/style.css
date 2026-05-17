@@ -500,3 +500,84 @@ ul li {
         font-size: 34px;
     }
 }
+
+/***** MOBILE FIXES *****/
+
+@media (max-width: 768px) {
+
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .jumbotron,
+    .home-hero,
+    .project-hero {
+        padding: 45px 20px 80px 20px;
+        text-align: center;
+    }
+
+    .jumbotron h1,
+    .home-hero h1,
+    .project-hero h1 {
+        font-size: 34px;
+        line-height: 1.2;
+    }
+
+    .jumbotron p,
+    .home-hero p,
+    .project-hero p {
+        font-size: 18px;
+        line-height: 1.55;
+    }
+
+    .jumbotron::after,
+    .home-hero::after,
+    .project-hero::after {
+        height: 140px;
+    }
+
+    .home-buttons .btn {
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+        font-size: 18px;
+    }
+
+    .profile-image {
+        max-width: 150px;
+        margin-top: 25px;
+    }
+
+    .contact-icon {
+        max-width: 120px;
+        margin-top: 25px;
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .about-image {
+        max-width: 230px;
+        margin-bottom: 30px;
+    }
+
+    .about-card {
+        padding: 22px;
+    }
+
+    .about-card p {
+        font-size: 17px;
+    }
+
+    .card-img-top {
+        height: 220px;
+    }
+
+    #timeline,
+    #map {
+        height: 450px;
+        margin-bottom: 25px;
+    }
+}
