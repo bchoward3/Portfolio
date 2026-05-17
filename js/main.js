@@ -15,7 +15,6 @@ function createMap() {
     // Disable scroll wheel zoom for smoother page navigation
     map.scrollWheelZoom.disable();
 
-    
     // Add CartoDB Dark Matter basemap
     L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
         attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
@@ -74,7 +73,7 @@ function createMap() {
             dates: "December 2013 - August 2020",
             duties:
                 "Managed institutional mail, records, correspondence, intelligence gathering, and communication with the public and government agencies."
-        },
+        }
 
     ];
 
@@ -91,6 +90,7 @@ function createMap() {
             job.dates + "<br><br>" +
             job.duties;
 
+        // Create map marker
         var marker = L.circleMarker(job.coords, {
             radius: 8,
             color: "#ffffff",
@@ -107,7 +107,10 @@ function createMap() {
         if (document.getElementById("timeline")) {
 
             var timelineItem = document.createElement("div");
+
             timelineItem.className = "timeline-item";
+
+            // Allow keyboard accessibility / focus
             timelineItem.setAttribute("tabindex", "0");
 
             timelineItem.innerHTML =
@@ -116,15 +119,30 @@ function createMap() {
                 "<p>" + job.place + "</p>" +
                 "<p><em>" + job.dates + "</em></p>";
 
+            // Timeline interaction
             timelineItem.addEventListener("click", function() {
+
+                // Remove active class from all timeline items
+                document.querySelectorAll(".timeline-item").forEach(function(item) {
+                    item.classList.remove("active-timeline");
+                });
+
+                // Highlight selected timeline item
+                timelineItem.classList.add("active-timeline");
+
+                // Move map to selected location
                 map.setView(job.coords, 8);
+
+                // Open popup for associated marker
                 markers[index].openPopup();
             });
 
+            // Add timeline item to sidebar
             document.getElementById("timeline").appendChild(timelineItem);
         }
 
     });
+
 }
 
 // Call createMap when the DOM loads

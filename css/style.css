@@ -434,3 +434,13 @@ ul li {
 html {
     scroll-behavior: smooth;
 }
+
+.active-timeline {
+    border-left-color: #e11f09 !important;
+
+    background-color: #e8e8e8;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+}
