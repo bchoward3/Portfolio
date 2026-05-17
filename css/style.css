@@ -367,3 +367,50 @@ ul li {
 
     box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
+
+/***** CONTACT CARDS *****/
+
+.contact-links {
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.contact-card {
+    display: block;
+
+    background-color: rgba(255,255,255,0.88);
+
+    border-left: 5px solid #2a2a35;
+
+    padding: 30px 20px;
+
+    text-decoration: none;
+
+    color: #242424;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    transition: all 0.25s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+
+    border-left-color: #e11f09;
+
+    text-decoration: none;
+
+    color: #242424;
+}
+
+.contact-method-icon {
+    max-width: 70px;
+
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
