@@ -104,6 +104,7 @@
 .project-hero .container {
     position: relative;
     z-index: 2;
+    animation: fadeUpHero 0.9s ease;
 }
 
 /* Gradual fade into page background */
@@ -146,7 +147,7 @@
 .jumbotron p,
 .home-hero p,
 .project-hero p {
-    font-size: 22px;
+    font-size: 21px;
     margin-bottom: 20px;
 }
 
@@ -185,15 +186,27 @@
 
 /***** BASIC TEXT STYLES *****/
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Calibri', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-image: url("../assets/indexback.png");
     background-attachment: fixed;
     color: #242424;
 }
 
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 600;
+}
+
 p {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 1.7;
 }
 
 a {
@@ -337,6 +350,13 @@ ul li {
     margin-bottom: 3px;
 }
 
+.active-timeline {
+    border-left-color: #e11f09 !important;
+    background-color: #e8e8e8;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+}
+
 /***** ABOUT PAGE *****/
 
 .about-section {
@@ -420,8 +440,14 @@ ul li {
 
 .card,
 .contact-card,
-.timeline-item {
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+.timeline-item,
+.project-summary,
+.about-card {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease;
 }
 
 .card:hover,
@@ -431,16 +457,31 @@ ul li {
     box-shadow: 0 8px 22px rgba(0,0,0,0.22);
 }
 
-html {
-    scroll-behavior: smooth;
+@keyframes fadeUpHero {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.active-timeline {
-    border-left-color: #e11f09 !important;
+/***** MOBILE RESPONSIVENESS *****/
 
-    background-color: #e8e8e8;
+@media (max-width: 768px) {
 
-    transform: translateY(-3px);
+    .jumbotron p,
+    .home-hero p,
+    .project-hero p {
+        font-size: 18px;
+    }
 
-    box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+    .jumbotron h1,
+    .home-hero h1,
+    .project-hero h1 {
+        font-size: 34px;
+    }
 }
