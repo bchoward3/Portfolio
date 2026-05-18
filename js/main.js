@@ -31,6 +31,7 @@ function createMap() {
             coords: [32.0000, -81.1000],
             title: "Public Safety GIS Analyst",
             dates: "September 2025 - Present",
+            seal: "assets/chatham.png",
             duties:
                 "Regular updates to CAD system, designed and implemented geodatabases, developed scripts for automation, edited and maintained MSAG, resolved technical issues with the 911 system."
         },
@@ -41,6 +42,7 @@ function createMap() {
             coords: [43.0731, -89.4012],
             title: "Investigative Analyst",
             dates: "September 2023 - August 2025",
+            seal: "assets/usms.svg",
             duties:
                 "Supported criminal investigators, conducted database and OSINT research, coordinated federal/state operations, and developed GIS resources using ArcGIS Enterprise and ArcGIS Pro."
         },
@@ -51,6 +53,7 @@ function createMap() {
             coords: [43.7797, -89.5726],
             title: "Correctional Counselor",
             dates: "February 2023 - September 2023",
+            seal: "assets/bop.svg",
             duties:
                 "Conducted NCIC checks, intake screening, administrative remedies, unit operations, and institutional compliance duties."
         },
@@ -61,6 +64,7 @@ function createMap() {
             coords: [41.9584, -90.1026],
             title: "Correctional Systems Officer",
             dates: "August 2020 - February 2023",
+            seal: "assets/bop.svg",
             duties:
                 "Performed database inquiry, records management, mail monitoring, intelligence gathering, and policy interpretation and revision."
         },
@@ -71,6 +75,7 @@ function createMap() {
             coords: [38.0498, -84.4585],
             title: "Correctional Officer",
             dates: "December 2013 - August 2020",
+            seal: "assets/bop.svg",
             duties:
                 "Managed institutional mail, records, correspondence, intelligence gathering, and communication with the public and government agencies."
         }
@@ -100,7 +105,6 @@ function createMap() {
             fillColor: markerColor,
             fillOpacity: 0.95
         })
-        
         .addTo(map)
         .bindPopup(popupContent);
 
@@ -121,10 +125,15 @@ function createMap() {
             timelineItem.setAttribute("tabindex", "0");
 
             timelineItem.innerHTML =
-                "<h4>" + job.name + "</h4>" +
-                "<p><strong>" + job.title + "</strong></p>" +
-                "<p>" + job.place + "</p>" +
-                "<p><em>" + job.dates + "</em></p>";
+                "<div class='timeline-content'>" +
+                    "<img src='" + job.seal + "' alt='" + job.name + " seal' class='timeline-seal'>" +
+                    "<div class='timeline-text'>" +
+                        "<h4>" + job.name + "</h4>" +
+                        "<p><strong>" + job.title + "</strong></p>" +
+                        "<p>" + job.place + "</p>" +
+                        "<p><em>" + job.dates + "</em></p>" +
+                    "</div>" +
+                "</div>";
 
             // Timeline interaction
             timelineItem.addEventListener("click", function() {
