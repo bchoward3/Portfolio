@@ -350,6 +350,12 @@ ul li {
     background-color: #f1f3f4;
 }
 
+/* Current job highlight */
+
+.timeline-item.current-job {
+    border-left: 4px solid #2ecc71;
+}
+
 .timeline-item:hover {
     background-color: #e8e8e8;
 }
@@ -624,3 +630,4 @@ ul li {
     border: 2px solid #000;
     box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
+

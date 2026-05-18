@@ -113,6 +113,10 @@ function createMap() {
 
             timelineItem.className = "timeline-item";
 
+            if (job.dates.includes("Present")) {
+                timelineItem.classList.add("current-job");
+            }
+
             // Allow keyboard accessibility / focus
             timelineItem.setAttribute("tabindex", "0");
 
