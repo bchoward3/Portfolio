@@ -91,12 +91,15 @@ function createMap() {
             job.duties;
 
         // Create map marker
+        var markerColor = job.dates.includes("Present") ? "#2ecc71" : "#e11f09";
+
         var marker = L.circleMarker(job.coords, {
-            radius: 8,
+            radius: job.dates.includes("Present") ? 10 : 8,
             color: "#ffffff",
             weight: 2,
-            fillColor: "#e11f09",
-            fillOpacity: 0.9
+            fillColor: markerColor,
+            fillOpacity: 0.95
+        })
         })
         .addTo(map)
         .bindPopup(popupContent);
