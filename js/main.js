@@ -100,7 +100,7 @@ function createMap() {
             fillColor: markerColor,
             fillOpacity: 0.95
         })
-        })
+        
         .addTo(map)
         .bindPopup(popupContent);
 
